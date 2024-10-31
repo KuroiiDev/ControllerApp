@@ -52,13 +52,17 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Bluetooth is not supported on this device", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        if (!bluetoothAdapter.isEnabled()) {
-            // Bluetooth is not enabled; request to enable it
-            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH_CONNECT}, PERMISSION_REQUEST_CODE);
         } else {
-            initializeBluetoothConnection();
+            // If Bluetooth is not enabled, request to enable it
+            if (!bluetoothAdapter.isEnabled()) {
+                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+            } else {
+                initializeBluetoothConnection();
+            }
         }
     }
 
