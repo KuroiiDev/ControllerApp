@@ -1,4 +1,4 @@
-package com.bandhayudha.controller;
+package com.example.coba2;
 
 import org.junit.Test;
 

@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "RobotController"
-include ':app'
+rootProject.name = "Coba2"
+include(":app")
+ 

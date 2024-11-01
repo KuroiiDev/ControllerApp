@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary">#D1D1D1</color>
+    <color name="background">#E7E7E7</color>
+    <color name="bluetooth">#0082FC</color>
 </resources>
