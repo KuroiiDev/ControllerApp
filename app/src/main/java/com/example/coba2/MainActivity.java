@@ -584,7 +584,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (!bluetoothAdapter.isEnabled()) {
             Log.d("Bluetooth", "Bluetooth Inactive");
-            Toast.makeText(this, "Turn On bluetooth!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Turn On your bluetooth!", Toast.LENGTH_SHORT).show();
             return;
         }
 
