@@ -99,6 +99,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:text="Nilai : " />
                 <TextView
                     android:id="@+id/nilai_value"
@@ -118,6 +119,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:text="Sudut : "/>
                 <TextView
                     android:id="@+id/sudut_value"
@@ -137,6 +139,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:text="Jarak : "/>
                 <TextView
                     android:id="@+id/jarak_value"
