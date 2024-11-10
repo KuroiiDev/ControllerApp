@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         joystickBase = findViewById(R.id.base);
         final TextView teks = findViewById(R.id.sudut_value);
         final TextView teks2 = findViewById(R.id.jarak_value);
-        Button connectButton = findViewById(R.id.konek);
+        Button connectButton = findViewById(R.id.connect);
         SeekBar slider = findViewById(R.id.slider);
         slider.setProgress(1);
         final TextView statusText = findViewById(R.id.nilai_value);
@@ -415,7 +415,7 @@ public class MainActivity extends AppCompatActivity {
 //        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 //        if (requestCode == REQUEST_BLUETOOTH_PERMISSIONS) { // Pastikan ini sama dengan yang digunakan di requestPermissions
 //            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                // Izin diberikan, coba lagi untuk memulai koneksi
+//                // Izin diberikan, coba lagi untuk memulai connectsi
 //                startBLEConnection();
 //            } else {
 //                Log.d("Bluetooth", "gaiso");
@@ -458,7 +458,7 @@ public class MainActivity extends AppCompatActivity {
 //                            bluetoothGatt = device.connectGatt(MainActivity.this, false, gattCallback);
 //                            }
 //
-//                            // Cek izin sebelum melakukan koneksi Bluetooth
+//                            // Cek izin sebelum melakukan connectsi Bluetooth
 ////                            if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED) {
 ////                                bluetoothGatt = device.connectGatt(MainActivity.this, false, gattCallback);
 ////                            }
@@ -504,7 +504,7 @@ public class MainActivity extends AppCompatActivity {
 //                Log.d("BLE", "Device found: " + device.getName() + " Address: " + device.getAddress());
 //
 //                if (device.getAddress().equals(BLE_MAC_ADDRESS)) {
-//                    // Lakukan koneksi GATT
+//                    // Lakukan connectsi GATT
 //                    Log.d("BLE", "Target device found, attempting to connect...");
 //                    if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
 //
@@ -597,8 +597,8 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Bluetooth", "Berhasil connect ke HC-05");
         } catch (IOException e) {
             e.printStackTrace();
-            Log.d("Bluetooth", "Koneksi gagal : " + e.getMessage());
-            Toast.makeText(this, "Koneksi gagal : " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Log.d("Bluetooth", "connectsi gagal : " + e.getMessage());
+            Toast.makeText(this, "connectsi gagal : " + e.getMessage(), Toast.LENGTH_SHORT).show();
         } catch (SecurityException e) {
             e.printStackTrace();
             Log.d("Bluetooth", "Izin Bluetooth diperlukan");
