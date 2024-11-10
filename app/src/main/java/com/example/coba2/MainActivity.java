@@ -534,13 +534,13 @@ public class MainActivity extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-            Log.d("BluetoothPermissions", "Minta izin lokasi");
+            Log.d("BluetoothPermissions", "Attempting Location Permission");
             ActivityCompat.requestPermissions(this, new String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.ACCESS_COARSE_LOCATION
             }, REQUEST_BLUETOOTH_PERMISSIONS);
         } else {
-            Log.d("BluetoothPermissions", "Izin Lokasi diberikan");
+            Log.d("BluetoothPermissions", "Location Permission is Allowed");
             connectToHC05();
         }
     }
@@ -575,16 +575,16 @@ public class MainActivity extends AppCompatActivity {
 
     //hc-05
     private void connectToHC05() {
-        Log.d("Bluetooth", "mencoba connect ke HC-05...");
+        Log.d("Bluetooth", "Attempting to connect to HC-05...");
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (bluetoothAdapter == null) {
-            Log.d("Bluetooth", "Bluetooth tidak support");
-            Toast.makeText(this, "Bluetooth tidak support", Toast.LENGTH_SHORT).show();
+            Log.d("Bluetooth", "Bluetooth Unsupported");
+            Toast.makeText(this, "Device Not Supporting bluetooth", Toast.LENGTH_SHORT).show();
             return;
         }
         if (!bluetoothAdapter.isEnabled()) {
-            Log.d("Bluetooth", "Bluetooth tidak nyala");
-            Toast.makeText(this, "Nyalakan bluetooth", Toast.LENGTH_SHORT).show();
+            Log.d("Bluetooth", "Bluetooth Inactive");
+            Toast.makeText(this, "Turn On bluetooth!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -593,16 +593,16 @@ public class MainActivity extends AppCompatActivity {
             bluetoothSocket = hc05.createRfcommSocketToServiceRecord(HC_05_UUID);
             bluetoothSocket.connect();
             outputStream = bluetoothSocket.getOutputStream();
-            Toast.makeText(this, "Berhasil connect ke HC-05", Toast.LENGTH_SHORT).show();
-            Log.d("Bluetooth", "Berhasil connect ke HC-05");
+            Toast.makeText(this, "Successfully connected to HC-05", Toast.LENGTH_SHORT).show();
+            Log.d("Bluetooth", "Successfully connected to HC-05");
         } catch (IOException e) {
             e.printStackTrace();
-            Log.d("Bluetooth", "connectsi gagal : " + e.getMessage());
-            Toast.makeText(this, "connectsi gagal : " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Log.d("Bluetooth", "Connection Error : " + e.getMessage());
+            Toast.makeText(this, "Connection Error : " + e.getMessage(), Toast.LENGTH_SHORT).show();
         } catch (SecurityException e) {
             e.printStackTrace();
-            Log.d("Bluetooth", "Izin Bluetooth diperlukan");
-            Toast.makeText(this, "Izin Bluetooth diperlukan", Toast.LENGTH_SHORT).show();
+            Log.d("Bluetooth", "Please Allow Bluetooth");
+            Toast.makeText(this, "Please Allow Bluetooth", Toast.LENGTH_SHORT).show();
         }
     }
 // sampe sini
