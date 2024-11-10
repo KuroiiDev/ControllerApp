@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private int value = 0;
 
 
-    private static final String HC_05_MAC_ADDRESS = "00:22:04:00:41:4B"; // MAC address of your HC-05
+    private static final String HC_05_MAC_ADDRESS = "00:22:04:00:41:4B"; // Kasih Mac Address HC_05
     private static final UUID HC_05_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     private static final int REQUEST_BLUETOOTH_PERMISSIONS = 1;
 

@@ -47,6 +47,8 @@
         android:layout_height="wrap_content"
         android:text="Connect"
         android:textStyle="bold"
+        android:textColor="@color/white"
+        android:foregroundTint="@color/white"
         android:backgroundTint="@color/bluetooth"
         style="@style/Widget.Material3.Button.Icon"
         app:icon="@drawable/baseline_bluetooth_searching_24"
