@@ -118,12 +118,12 @@ public class MainActivity extends AppCompatActivity {
 //        joystick = findViewById(R.id.joystick);
         joystick = findViewById(R.id.knob);
         joystickBase = findViewById(R.id.base);
-        final TextView teks = findViewById(R.id.sudut_value);
-        final TextView teks2 = findViewById(R.id.jarak_value);
+        final TextView sudutText = findViewById(R.id.sudut_value);
+        final TextView jarakText = findViewById(R.id.jarak_value);
+        final TextView nilaiText = findViewById(R.id.nilai_value);
         Button connectButton = findViewById(R.id.connect);
         SeekBar slider = findViewById(R.id.slider);
         slider.setProgress(1);
-        final TextView statusText = findViewById(R.id.nilai_value);
         connectButton.setOnClickListener(v -> checkBluetoothPermissions());
 
 //        joystick.getViewTreeObserver().addOnGlobalLayoutListener(
@@ -239,8 +239,8 @@ public class MainActivity extends AppCompatActivity {
                     jarak = (int) ((distance / (baseRadius - knobRadius)) * 100);
 
 
-                    teks.setText("" + sudut);
-                    teks2.setText("" + jarak);
+                    sudutText.setText("" + sudut);
+                    jarakText.setText("" + jarak);
 
                     perbaruiData();
 //                    sendJoystickData(sudut, jarak, value);
@@ -261,8 +261,8 @@ public class MainActivity extends AppCompatActivity {
                     jarak = 0;
                     perbaruiData();
 //                    sendJoystickData(0, 0, value);
-                    teks.setText("0");
-                    teks2.setText("0");
+                    sudutText.setText("0");
+                    jarakText.setText("0");
                     break;
 
             }
@@ -334,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 value = progress - 1; //
-                statusText.setText(""+value);
+                nilaiText.setText(""+value);
                 perbaruiData();
 
 
