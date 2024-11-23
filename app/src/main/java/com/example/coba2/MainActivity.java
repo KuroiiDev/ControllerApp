@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private float centerX, centerY, baseRadius, knobRadius;
     private int jarak = 0;
     private int sudut = 0;
-    private int value = 0;
+    private int nilai = 0;
 
 
     private static final String HC_05_MAC_ADDRESS = "00:22:04:00:41:4B"; // Kasih Mac Address HC_05
@@ -122,10 +122,10 @@ public class MainActivity extends AppCompatActivity {
                     sudut = (int) angle;
                     jarak = (int) ((distance / (baseRadius - knobRadius)) * 100);
 
-                    sudutText.setText("" + sudut);
-                    jarakText.setText("" + jarak);
+                    sudutText.setText(String.valueOf(sudut));
+                    jarakText.setText(String.valueOf(jarak));
 
-                    perbaruiData();
+                    updateData();
 //                    sendJoystickData(sudut, jarak, value);
                     break;
 
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                             .start();
                     sudut = 0;
                     jarak = 0;
-                    perbaruiData();
+                    updateData();
 //                    sendJoystickData(0, 0, value);
                     sudutText.setText("0");
                     jarakText.setText("0");
@@ -152,9 +152,9 @@ public class MainActivity extends AppCompatActivity {
         slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                value = progress - 1; //
-                nilaiText.setText(""+value);
-                perbaruiData();
+                nilai = progress - 1; //
+                nilaiText.setText(String.valueOf(nilai));
+                updateData();
             }
 
             @Override
@@ -170,8 +170,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void perbaruiData() {
-        kirimData(jarak, sudut, value);
+    private void updateData() {
+        sendData(jarak, sudut, nilai);
     }
 
     //    ini hc-05
@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
     }
 // sampe sini
 
-    private void kirimData(int jarak, int sudut, int value) {
+    private void sendData(int jarak, int sudut, int value) {
         if (outputStream != null && bluetoothSocket.isConnected()) {
             try {
                 String data = jarak + " " + sudut + " " + value;
